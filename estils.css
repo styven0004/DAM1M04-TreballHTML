@@ -172,6 +172,41 @@ main {
 }
 
 /* =========================
+   PECES D'ESCACS
+========================= */
+.piece {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  background: #1f1f1f;
+  padding: 1.5rem;
+}
+
+.piece img {
+  width: 150px;
+}
+
+.piece h4 {
+  color: var(--secondary);
+  font-family: 'Cinzel', serif;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive peces */
+@media (max-width: 768px) {
+  .piece {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .piece img {
+    width: 120px;
+  }
+}
+
+/* =========================
    CARRUSEL (CSS PUR)
 ========================= */
 .carousel {
@@ -184,7 +219,7 @@ main {
 .carousel-track {
   display: flex;
   width: 300%;
-  animation: slide 15s infinite;
+  animation: slide 20s infinite;
 }
 
 .carousel img {
