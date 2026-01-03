@@ -1,0 +1,303 @@
+/* =========================
+   RESET I VARIABLES
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #121212;
+  --secondary: #d4af37;
+  --dark: #000;
+  --light: #f5f5f5;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--primary);
+  color: var(--light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   HEADER (STICKY)
+========================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(18, 18, 18, 0.95);
+  padding: 1rem 2rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header img {
+  width: 40px;
+}
+
+.header h1 {
+  font-family: 'Cinzel', serif;
+  color: var(--secondary);
+  font-size: 1.4rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  color: var(--secondary);
+}
+
+/* =========================
+   MAIN (LAYOUT GENERAL)
+========================= */
+main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  min-height: 70vh;
+  background: url('../img/hero.jpg') center / cover no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+.hero-text {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  max-width: 500px;
+}
+
+.hero-text h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  color: var(--secondary);
+}
+
+/* =========================
+   TITOLS
+========================= */
+.section-title {
+  font-family: 'Cinzel', serif;
+  color: var(--secondary);
+  font-size: 2rem;
+}
+
+/* =========================
+   CARDS (FLEXBOX)
+========================= */
+.cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #1f1f1f;
+  padding: 2rem;
+  width: 250px;
+  text-align: center;
+
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================
+   BOTONS
+========================= */
+.btn {
+  background: var(--secondary);
+  color: var(--dark);
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+/* =========================
+   ANIMACIÓ CSS
+========================= */
+.story-step {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal 1s forwards;
+}
+
+.story-step:nth-child(2) { animation-delay: 0.3s; }
+.story-step:nth-child(3) { animation-delay: 0.6s; }
+.story-step:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   CARRUSEL (CSS PUR)
+========================= */
+.carousel {
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.carousel-track {
+  display: flex;
+  width: 300%;
+  animation: slide 15s infinite;
+}
+
+.carousel img {
+  width: 100%;
+  object-fit: cover;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+}
+
+/* =========================
+   FORMULARI
+========================= */
+.contact-form {
+  max-width: 400px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input,
+textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input:valid,
+textarea:valid {
+  border: 2px solid green;
+}
+
+input:invalid,
+textarea:invalid {
+  border: 2px solid red;
+}
+
+/* =========================
+   IFRAME (YOUTUBE / MAPA)
+========================= */
+iframe {
+  max-width: 100%;
+  border: none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  background: var(--dark);
+  padding: 1rem 2rem;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   RESPONSIVE (MÒBIL)
+========================= */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: auto;
+    padding: 4rem 1rem;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+
+  /* MAIN */
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  /* TITOLS */
+  .section-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  /* BOTONS */
+  .btn {
+    align-self: center;
+  }
+
+  /* FOOTER */
+  .footer {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
